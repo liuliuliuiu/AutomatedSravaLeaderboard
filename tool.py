@@ -25,7 +25,7 @@ for info in zzy:
 
 athletes = []
 for item in stats:
-    # Separate the text by newlines
+    
     stats = item.split('\n')
 stats.remove(stats[0])
 for element in stats:
@@ -78,13 +78,13 @@ for cell in worksheet[5]:
 
 keys = StatsDict.keys()
 new_dict = {key: key.split()[-1].strip('.') for key in StatsDict}
-# Add my distance to the first empty cell
+
 for name, distance in StatsDict.items():
     if "Owen L." in name:
         worksheet[column_letter + "5"].value = float(distance)
         print(column_letter)
 
-# Add everyone else's distance to the same column
+
 for row in range(6, worksheet.max_row + 1):
     cell_value = str(worksheet["B" + str(row)].value)
     if cell_value == "None":
@@ -92,9 +92,9 @@ for row in range(6, worksheet.max_row + 1):
     fullname = (str(cell_value))
     print(fullname)
     last_name, first_name = fullname.split(', ')
-    # extract first letter of last name
+    
     last_initial = last_name[0]
-    # create updated name with first initial of first name and last initial of last name
+    
     updated_name = f"{first_name} {last_initial}."
     print(updated_name)
     if (updated_name) in StatsDict:
